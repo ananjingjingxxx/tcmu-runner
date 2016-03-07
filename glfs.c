@@ -360,7 +360,7 @@ int tcmu_glfs_handle_cmd(
 	case WRITE_10:
 	case WRITE_12:
 	case WRITE_16:
-		length = tcmu_get_xfer_length(cdb);
+		length = tcmu_get_xfer_length(cdb) * 512;
 write:
 		ret = glfs_pwritev(gfd, iovec, iov_cnt, offset, ALLOWED_BSOFLAGS);
 
